@@ -1,0 +1,42 @@
+<html ng-app="myApp">
+    <head>
+       <title ng-controller="myController" ng-model="title">{{title}}</title>
+       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+       <script src="Js/jquery-3.2.1.js"></script>
+       <script src="Js/bootstrap.min.js"></script>
+       <script src="Js/angular.min.js"></script>
+       <script src="Js/index.js"></script>
+    </head>
+    <body>
+       <div class="container" ng-controller="myController">
+          <br/> <br />
+          <form ng-submit="addUser()">
+             <div class="form-group">
+                <label for="uname">Username</label>
+                <input type="text" class="form-control" id="email" ng-model="username" name="username">
+             </div>
+             <div class="form-group">
+                <label for="pwd">Surname:</label>
+                <input type="text" class="form-control" id="pwd" ng-model="surname" name="surname">
+             </div>
+             <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <br /> <br />
+          <h4>{{count}}</h4>
+          <table class="table table-striped">
+             <tr>
+                <th>Username</th>
+                <th>Surname</th>
+             </tr>
+             <tr ng-repeat="user in users">
+                <td>{{ user.username }}</td>
+                <td>{{ user.surname }}     <a href="#" style="float:right;" ng-model="delete" ng-click="delete($index)" class="btn btn-primary a-btn-slide-text">
+                   <span aria-hidden="true"></span>
+                   <span>Delete</span>            
+                   </a>
+                </td>
+             </tr>
+          </table>
+       </div>
+    </body>
+ </html>
